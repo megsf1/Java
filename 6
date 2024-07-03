@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class InvestigacaoCrime {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int respostasPositivas = 0;
+
+        // Perguntas
+        String[] perguntas = {
+            "Telefonou para a vítima? (s/n) ",
+            "Esteve no local do crime? (s/n) ",
+            "Mora perto da vítima? (s/n) ",
+            "Devia para a vítima? (s/n) ",
+            "Já trabalhou com a vítima? (s/n) "
+        };
+
+        // Loop através das perguntas
+        for (String pergunta : perguntas) {
+            System.out.print(pergunta);
+            String resposta = scanner.next().toLowerCase(); // Lê a resposta e converte para minúsculo
+            if (resposta.equals("s")) {
+                respostasPositivas++;
+            }
+        }
+
+        // Classificação
+        String classificacao;
+        if (respostasPositivas == 2) {
+            classificacao = "Suspeita";
+        } else if (respostasPositivas >= 3 && respostasPositivas <= 4) {
+            classificacao = "Cúmplice";
+        } else if (respostasPositivas == 5) {
+            classificacao = "Assassino";
+        } else {
+            classificacao = "Inocente";
+        }
+
+        // Resultado
+        System.out.println("Classificação: " + classificacao);
+
+        scanner.close();
+    }
+}
