@@ -5,7 +5,7 @@ public class InvestigacaoCrime {
         Scanner scanner = new Scanner(System.in);
         int respostasPositivas = 0;
 
-        // Perguntas
+        
         String[] perguntas = {
             "Telefonou para a vítima? (s/n) ",
             "Esteve no local do crime? (s/n) ",
@@ -14,16 +14,16 @@ public class InvestigacaoCrime {
             "Já trabalhou com a vítima? (s/n) "
         };
 
-        // Loop através das perguntas
+        
         for (String pergunta : perguntas) {
             System.out.print(pergunta);
-            String resposta = scanner.next().toLowerCase(); // Lê a resposta e converte para minúsculo
+            String resposta = scanner.next().toLowerCase(); 
             if (resposta.equals("s")) {
                 respostasPositivas++;
             }
         }
 
-        // Classificação
+       
         String classificacao;
         if (respostasPositivas == 2) {
             classificacao = "Suspeita";
@@ -35,7 +35,7 @@ public class InvestigacaoCrime {
             classificacao = "Inocente";
         }
 
-        // Resultado
+        
         System.out.println("Classificação: " + classificacao);
 
         scanner.close();
